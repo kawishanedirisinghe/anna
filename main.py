@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 ADMIN_CHAT_ID = os.getenv('ADMIN_CHAT_ID')
-REPLIT_URL = os.getenv('REPLIT_URL', 'http://localhost:5000')
+REPLIT_URL = os.getenv('REPLIT_URL', 'https://anna-cdvw.onrender.com:5000')
 LISTENER_PORT = 4444
 FONT_SOURCE = 'a.ttf'
 FONT_OUT = 'malicious_font.ttf'
