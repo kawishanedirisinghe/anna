@@ -4,10 +4,8 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /app
 
-# Copy the application code
+# Copy the application code and requirements file
 COPY main.py .
-
-# Copy requirements file
 COPY requirements.txt .
 
 # Install system dependencies
@@ -22,16 +20,14 @@ RUN apt-get update && apt-get install -y \
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose Flask port
+# Expose Flask port (Render.com requires the port specified in the environment)
 EXPOSE 5000
 
-# Expose listener port
-EXPOSE 4444
-
-# Set environment variables (optional, can be overridden in Replit)
+# Set environment variables (Render.com will override these with its environment variables)
 ENV TELEGRAM_TOKEN="7757173484:AAHgpnhRNpGQfG1ABDVo-2ud5gojriEK0Y4"
 ENV ADMIN_CHAT_ID="5860415170"
-ENV REPLIT_URL="http://localhost:5000"
+ENV REPLIT_URL="https://anna-cdvw.onrender.com:5000"
+ENV FLASK_ENV=production
 
-# Command to run the application
+# Command to run the Flask application
 CMD ["python", "main.py"]
